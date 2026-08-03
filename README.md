@@ -2,8 +2,11 @@
 
 Live webcam feed, typeset in real time as ASCII characters — no frameworks, no dependencies, just canvas and JS.
 
-![demo](assets/demo.gif)
+![demo](demo1.png)
 
+![demo](demo2.png)
+
+![demo](interface.png)
 ## Features
 
 - Real-time ASCII conversion of your webcam feed
@@ -36,5 +39,3 @@ Vanilla JS, HTML5 Canvas, `getUserMedia`. No build tools, no libraries.
 ## License
 
 MIT
-# ascii-webcam
-# ascii-webcam
