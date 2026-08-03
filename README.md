@@ -37,3 +37,4 @@ Vanilla JS, HTML5 Canvas, `getUserMedia`. No build tools, no libraries.
 
 MIT
 # ascii-webcam
+# ascii-webcam

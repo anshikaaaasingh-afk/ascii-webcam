@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASCII// webcam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="masthead">
+    <div class="masthead__mark">
+      <span class="masthead__glyph">@%#*+=-:.</span>
+    </div>
+    <div class="masthead__title">
+      <h1>ASCII// <span>webcam</span></h1>
+      <p class="masthead__sub">every pixel, set in type</p>
+    </div>
+    <div class="masthead__status" id="statusBadge">
+      <span class="dot" id="statusDot"></span>
+      <span id="statusText">awaiting camera</span>
+    </div>
+  </div>
+
+  <main class="deck">
+
+    <section class="printout" id="printoutSection">
+      <div class="printout__frame">
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="asciiCanvas"></canvas>
+        <canvas id="sourceCanvas" hidden></canvas>
+
+        <div class="printout__overlay" id="startOverlay">
+          <button id="startBtn" class="feed-btn">
+            <span>feed the printer</span>
+            <small>enable camera</small>
+          </button>
+        </div>
+      </div>
+      <div class="printout__ledger">
+        <span id="resReadout">— × — cells</span>
+        <span id="fpsReadout">-- fps</span>
+      </div>
+    </section>
+
+    <aside class="console">
+
+      <div class="console__group">
+        <label class="console__label" for="resSlider">
+          <span>resolution</span>
+          <span class="console__value" id="resValue">0.18</span>
+        </label>
+        <input type="range" id="resSlider" min="0.06" max="0.35" step="0.01" value="0.18">
+        <div class="console__hint">fewer cells = bolder type, more cells = finer detail</div>
+      </div>
+
+      <div class="console__group">
+        <span class="console__label"><span>ramp</span></span>
+        <div class="ramp-select" id="rampSelect">
+          <button class="ramp-option is-active" data-ramp="standard">@%#*+=-:. <small>standard</small></button>
+          <button class="ramp-option" data-ramp="blocks">█▓▒░ <small>blocks</small></button>
+          <button class="ramp-option" data-ramp="binary">10 <small>binary</small></button>
+          <button class="ramp-option" data-ramp="minimal">#. <small>minimal</small></button>
+        </div>
+      </div>
+
+      <div class="console__group console__row">
+        <label class="switch">
+          <input type="checkbox" id="colorToggle">
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__label">colour ink</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="invertToggle">
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__label">invert</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" id="mirrorToggle" checked>
+          <span class="switch__track"><span class="switch__thumb"></span></span>
+          <span class="switch__label">mirror</span>
+        </label>
+      </div>
+
+      <div class="console__group">
+        <span class="console__label"><span>paper</span></span>
+        <div class="theme-select" id="themeSelect">
+          <button class="theme-option is-active" data-theme="paper" title="paper"></button>
+          <button class="theme-option" data-theme="phosphor" title="phosphor"></button>
+          <button class="theme-option" data-theme="amber" title="amber"></button>
+          <button class="theme-option" data-theme="midnight" title="midnight"></button>
+        </div>
+      </div>
+
+      <div class="console__group console__actions">
+        <button id="snapBtn" class="ghost-btn" disabled>save as .png</button>
+        <button id="snapTextBtn" class="ghost-btn" disabled>save as .txt</button>
+      </div>
+
+      <div class="console__footer">
+        no frames leave this browser — the feed is read, typeset, and discarded.
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
